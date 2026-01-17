@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghan Keneally</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #e8f5e9;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* ABOUT SECTION */
+        .hero {
+            position: relative;
+            margin-bottom: 5rem;
+        }
+
+        .hero > h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -1px;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+        }
+
+        .hero-content p {
+            margin-bottom: 1.5rem;
+            color: #2a2a2a;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .bio {
+            position: relative;
+        }
+
+        .headshot-wrapper {
+            float: right;
+            margin-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .headshot-placeholder {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .headshot-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio p {
+            margin-bottom: 1.5rem;
+            color: #2a2a2a;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* CONTACT SECTION IN ABOUT */
+        .contact-inline {
+            background: white;
+            padding: 3rem;
+            margin-top: 4rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            clear: both;
+        }
+
+        .contact-inline h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-inline p {
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* SECTION TITLES */
+        h2.section-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        /* SCREENWRITING SECTION */
+        .screenplay-intro {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 900px;
+        }
+
+        .screenplay-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .screenplay-card {
+            background: white;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .screenplay-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .screenplay-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .screenplay-card .format {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .screenplay-card .logline {
+            color: #4a4a4a;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .screenplay-card .achievement {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            font-size: 0.85rem;
+            display: inline-block;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .screenplay-footer {
+            margin-top: 3rem;
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 900px;
+        }
+
+        .screenplay-footer a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .screenplay-footer a:hover {
+            text-decoration: none;
+        }
+
+        /* RESUME SECTION */
+        .resume-content {
+            background: white;
+            padding: 4rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-width: 1000px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .resume-content h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-top: 2rem;
+        }
+
+        .resume-content h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .resume-content h4 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .resume-content .date {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .resume-content .position {
+            color: #4a4a4a;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .resume-content p {
+            color: #4a4a4a;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .resume-content a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .resume-content a:hover {
+            text-decoration: none;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .award-item {
+            background: #f5f5f5;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+
+        .linkedin-cta {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .linkedin-cta p {
+            margin-bottom: 1.5rem;
+        }
+
+        .linkedin-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .linkedin-button:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* JOURNALISM SECTION */
+        .journalism-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .article-logo {
+            height: 60px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-logo .publication-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -0.2px;
+        }
+
+        .article-info {
+            padding: 1.8rem;
+        }
+
+        .article-type {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .article-type.video {
+            background: #ff6b6b;
+            color: white;
+            display: inline-block;
+        }
+
+        .article-type.written {
+            display: none;
+        }
+
+        .article-info h3 {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+        }
+
+        .article-info .special-note {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 3rem 2rem;
+            }
+
+            nav .container {
+                padding: 0 2rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .headshot-wrapper {
+                margin: 0 auto 2rem;
+            }
+
+            .hero > h2 {
+                font-size: 2.5rem;
+            }
+
+            h2.section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .hero > h2 {
+                font-size: 2rem;
+            }
+
+            .journalism-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2.section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>Meghan Keneally</h1>
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showSection('about')">About</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('resume')">Resume</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('journalism')">Journalism</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('screenwriting')">Screenwriting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- ABOUT SECTION -->
+        <section id="about" class="active">
+            <div class="hero">
+                <h2>From Deadlines to Datasets...</h2>
+                <div class="hero-content">
+                    <div class="headshot-wrapper">
+                        <div class="headshot-placeholder">
+                            <img src="https://i.imgur.com/IrfWUUJ.jpeg" alt="Meghan Keneally headshot">
+                        </div>
+                    </div>
+                    <div class="bio">
+                        <p>I've spent my career navigating the space where complex human stories meet the need for clear, reliable information. Whether reporting from a newsroom or training a large language model, my goal has always been the same: ensuring that the information people receive is accurate, nuanced, and trustworthy.</p>
+                        <p>Today, I'm a member of the Content Engineering team in Meta's Superintelligence Labs, where I lead our team's Trust and Safety efforts. I use my investigative instincts to build frameworks that make generative AI safer and more reliable.</p>
+                        <p>Before entering the world of AI, I was an Emmy-nominated journalist chasing breaking stories for ABC News and the Daily Mail. That fast-paced background taught me how to find the signal in the noise—a skill that is more necessary than ever.</p>
+                        <p>When I'm not working, I'm usually plotting my next trip (I've hit 50 countries and counting!), honing my nascent screenwriting skills, or searching for the perfect restaurant—a habit I've had since I was a kid writing food reports in my travel journals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-inline">
+                <h3>Get In Touch</h3>
+                <p>I'd love to hear from you! The best way to reach me is through LinkedIn.</p>
+                <a href="https://www.linkedin.com/in/meghan-keneally-a517b525/" class="linkedin-button" target="_blank">Connect on LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- SCREENWRITING SECTION -->
+        <section id="screenwriting">
+            <h2 class="section-title">Screenwriting</h2>
+            <p class="screenplay-intro">In my spare time, I trade system prompts for scripts. I am currently developing several screenplays that explore the hazards and humor of the modern world.</p>
+            <div class="screenplay-grid">
+                <div class="screenplay-card">
+                    <h3>Hornet's Nest</h3>
+                    <div class="format">Thriller, Feature</div>
+                    <p class="logline">A young congressional aide digs into the nefarious workings of the People's Temple, coming face-to-face with cult leader Jim Jones as she tries to help people out of their jungle camp at Jonestown, only to face the biggest fight of her life.</p>
+                    <span class="achievement">Top 25% on Coverfly</span>
+                </div>
+                <div class="screenplay-card">
+                    <h3>The Perfect Season</h3>
+                    <div class="format">Pilot, Half Hour Comedy</div>
+                    <p class="logline">After hooking up with someone at nearly every wedding she attended last year, Maggie, 29, tries to fix her life while navigating another busy wedding season. She and her large, close-knit group of college friends sort through romantic entanglements, simmering feuds, family dramas and the grand spectacles of a packed season.</p>
+                    <span class="achievement">Top 25% on Coverfly</span>
+                </div>
+            </div>
+            <p class="screenplay-footer">I am always looking to connect with fellow writers, producers, or anyone with a passion for great storytelling. Feel free to get in touch via <a href="https://www.linkedin.com/in/meghan-keneally-a517b525/" target="_blank">LinkedIn</a>.</p>
+        </section>
+
+        <!-- RESUME SECTION -->
+        <section id="resume">
+            <h2 class="section-title">Resume</h2>
+            <div class="resume-content">
+                <h3>META</h3>
+                <div class="date">November 2019 – Present</div>
+                <div class="position"><strong>Content Engineering – GenAI / Meta Superintelligence Labs</strong> | October 2023 – Present</div>
+                <div class="position"><strong>Curation and Product Content Operations</strong> | November 2019 – October 2023</div>
+
+                <h3>ABC News</h3>
+                <div class="date">June 2014 – October 2019</div>
+                <div class="position"><strong>Senior Digital Reporter</strong> | September 2016 to October 2019</div>
+                <div class="position"><strong>Digital Reporter</strong> | June 2014 to September 2016</div>
+                <p>My archive of articles and projects for ABC News can be found <a href="https://abcnews.go.com/author/meghan_keneally" target="_blank">here</a>.</p>
+
+                <h3>MailOnline, The Daily Mail</h3>
+                <div class="date">October 2011 to June 2014</div>
+                <div class="position"><strong>Reporter</strong></div>
+                <p>My published stories can be viewed <a href="https://www.dailymail.co.uk/home/search.html?s=&authornamef=Meghan+Keneally" target="_blank">here</a>.</p>
+
+                <p><strong>Earlier internships:</strong> The New York Times (Local East Village), The New York Observer, The Washington Post, The Current Newspapers, The Sunday Times (London).</p>
+
+                <h3>Education</h3>
+                <h4>Columbia University Graduate School of Journalism, New York, N.Y.</h4>
+                <p>Master of Science, print concentration with coursework in investigative techniques, political reporting, and feature writing.</p>
+
+                <h4>Georgetown University, Washington, D.C.</h4>
+                <p>Bachelor of Arts in Government and Art History, minor in French. Second Honors (1 semester) and Dean's List (3 semesters).</p>
+
+                <h4>University of Marc Bloch, Strasbourg, France</h4>
+                <p>Courses included politics of the European Union, international relations and constitutional law.</p>
+
+                <h3>Skills</h3>
+                <p><strong>AI:</strong> Model Alignment (RLHF/SFT), Human-in-the-Loop (HITL) Frameworks, AI Evaluation Systems, Bias Mitigation, Prompt Engineering, System Prompting, Adversarial Testing and Red Teaming, 0-to-1 Product Development.</p>
+                <p><strong>Languages:</strong> Moderate French (reading, writing, speaking).</p>
+                <p><strong>Citizenship:</strong> Dual citizen of the United States and the United Kingdom after living in London for 12 years.</p>
+
+                <h3>Awards received while at ABC News</h3>
+                <div class="awards-grid">
+                    <div class="award-item">2019 Webby Award nominee, News & Politics</div>
+                    <div class="award-item">2018 Webby Award nominee, News & Politics</div>
+                    <div class="award-item">2017 Digital Innovation Award: Deadline Club</div>
+                    <div class="award-item">2017 Sigma Delta Chi Award, Digital Media Presentation: Society for Professional Journalists</div>
+                    <div class="award-item">2017 Gracie Award honoree for Interactive Media: Alliance for Women in Media Foundation</div>
+                    <div class="award-item">2016 Digital Media Finalist: National Association of Black Journalists</div>
+                    <div class="award-item">Edward R. Murrow Award: The Radio and Television Digital News Association</div>
+                    <div class="award-item">Alfred I. DuPont-Columbia University Award: For Excellence in Broadcast Journalism</div>
+                </div>
+
+                <div class="linkedin-cta">
+                    <p>For a comprehensive look at my professional background, career trajectory, and detailed experience, please visit my <a href="https://www.linkedin.com/in/meghan-keneally-a517b525/" target="_blank">LinkedIn profile</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNALISM SECTION -->
+        <section id="journalism">
+            <h2 class="section-title">Journalism Portfolio</h2>
+            <div class="journalism-grid" id="journalismGrid">
+                <!-- Articles populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Journalism articles in specified order
+        const articles = [
+            { 
+                type: 'written', 
+                title: 'How much the state will pay for a wrongful conviction depends on which state you\'re in', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/state-pay-wrongful-conviction-depends-state/story?id=62436623' 
+            },
+            { 
+                type: 'written', 
+                title: 'Where are the living US mass school shooters now? Most are incarcerated', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/living-us-mass-school-shooters-incarcerated/story?id=36986507' 
+            },
+            { 
+                type: 'written', 
+                title: 'Timeline of Paul Manafort\'s role in the Trump campaign', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/Politics/timeline-paul-manaforts-role-trump-campaign/story?id=50808957',
+                specialNote: 'As cited in the Mueller Report'
+            },
+            { 
+                type: 'video', 
+                title: 'Roberts County: A Year in Pro-Trump Town, America', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/Politics/roberts-county-year-pro-trump-town-america/story?id=52364233' 
+            },
+            { 
+                type: 'written', 
+                title: 'The vicious cycle: 11 million live without a driver\'s license due to unpaid fines', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/vicious-cycle-11-million-live-drivers-license-unpaid/story?id=66504966' 
+            },
+            { 
+                type: 'written', 
+                title: 'Ruby Ridge siege 25 years later: It\'s been called a rallying cry for militia groups', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/Politics/ruby-ridge-siege-25-years-called-rallying-cry/story?id=49296439' 
+            },
+            { 
+                type: 'video', 
+                title: 'The Basin: Wyoming Coal Miners Have High Hopes for Trump', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/Politics/wyoming-coal-miners-high-hopes-trump-amid-national/story?id=47465051' 
+            },
+            { 
+                type: 'written', 
+                title: 'Disappearing Beaches: The Impact of Sea Level Rise', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/deepdive/disappearing-beaches-sea-level-rise-39427567' 
+            },
+            { 
+                type: 'written', 
+                title: 'March for Our Lives falls on 20th anniversary of deadly Jonesboro school shooting', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/march-lives-falls-20th-anniversary-deadly-jonesboro-school/story?id=53873395' 
+            },
+            { 
+                type: 'written', 
+                title: 'Mass shootings are increasing and pose the biggest threat in the US, expert says', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/mass-shootings-increasing-pose-threat-us-expert/story?id=59056868' 
+            },
+            { 
+                type: 'video', 
+                title: 'Trump\'s US-Mexico Border Wall: One Arizona Town\'s Sense of Security', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/Politics/trumps-us-mexico-border-wall-arizona-town-sense/story?id=46052652' 
+            },
+            { 
+                type: 'written', 
+                title: 'How unaccompanied minors adapted to life in America', 
+                publication: 'ABC News', 
+                url: 'https://abcnews.go.com/US/unaccompanied-minors-adapted-life-america/story?id=26481233' 
+            },
+        ];
+
+        const grid = document.getElementById('journalismGrid');
+        articles.forEach(article => {
+            const card = document.createElement('a');
+            card.href = article.url;
+            card.target = '_blank';
+            card.className = 'article-card';
+            card.innerHTML = `
+                <div class="article-logo">
+                    <div class="publication-name">${article.publication}</div>
+                </div>
+                <div class="article-info">
+                    <span class="article-type ${article.type}">${article.type}</span>
+                    <h3>${article.title}</h3>
+                    ${article.specialNote ? `<div class="special-note">${article.specialNote}</div>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
